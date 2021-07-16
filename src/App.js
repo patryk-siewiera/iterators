@@ -48,12 +48,21 @@ function App() {
 					{formList.map((e) => {
 						return (
 							<li>
-								Name:{e.name} Desc:{e.description}
+								<div className="name">Name: {e.name}</div>
+								<div className="desc">
+									Desc: {e.description}
+								</div>
+								<div className="actions">
+									<button className="edit">edit</button>
+									<button className="moveUp">moveUp</button>
+									<button className="delete">Delete</button>
+									<button className="moveDown">
+										moveDown
+									</button>
+								</div>
 							</li>
 						);
 					})}
-
-					<li></li>
 				</ul>
 			</div>
 		</div>
