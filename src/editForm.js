@@ -13,20 +13,7 @@ export default function EditForm(props) {
 	const [question, setQuestion] = useState([]);
 	return (
 		<div>
-			<button
-				className="goBack"
-				onClick={() => {
-					props.onBack();
-				}}
-			>
-				Go back
-			</button>{" "}
 			<h1>EDIT FORM</h1>
-			<div>{JSON.stringify(props)}</div>
-			<EditField />
-			{question.map((e) => {
-				return <EditField />;
-			})}
 			<button
 				onClick={(ev) => {
 					const newQuestionList = [
@@ -38,6 +25,18 @@ export default function EditForm(props) {
 				add new field{" "}
 			</button>
 			<button>save</button>
+			<button
+				className="goBack"
+				onClick={() => {
+					props.onBack();
+				}}
+			>
+				Go back
+			</button>{" "}
+			<EditField />
+			{question.map((e) => {
+				return <EditField />;
+			})}
 		</div>
 	);
 }

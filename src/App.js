@@ -65,6 +65,9 @@ function App({ onEdit }) {
 									<button className="moveDown">
 										moveDown
 									</button>
+									<button className="answer">
+										Answer Questions
+									</button>
 								</div>
 							</li>
 						);
