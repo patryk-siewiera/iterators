@@ -7,8 +7,8 @@ import EditForm from "./editForm";
 ReactDOM.render(<MyApp />, document.getElementById("root"));
 
 function MyApp() {
-	const [page, setPage] = useState("app");
-	const [id, setId] = useState(undefined);
+	const [page, setPage] = useState("edit");
+	const [id, setId] = useState({});
 	return (
 		<React.StrictMode>
 			{page === "app" && (
@@ -19,7 +19,15 @@ function MyApp() {
 					}}
 				/>
 			)}
-			{page === "edit" && <EditForm id={id} />}
+
+			{page === "edit" && (
+				<EditForm
+					form={id}
+					onBack={() => {
+						setPage("app");
+					}}
+				/>
+			)}
 		</React.StrictMode>
 	);
 }

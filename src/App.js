@@ -41,7 +41,6 @@ function App({ onEdit }) {
 				>
 					New form
 				</button>
-				<div>{JSON.stringify(formList, null, 2)}</div>
 			</div>
 			<div className="list">
 				<ul>
