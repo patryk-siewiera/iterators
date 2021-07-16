@@ -41,6 +41,10 @@
 	text-align: left;
 }
 
+li {
+	margin-top: 20px;
+}
+
 .name {
 	font-size: 1.5rem;
 }
@@ -51,9 +55,25 @@
 
 .delete {
 	color: red;
+	width: 100px;
 }
 
 .edit {
 	color: blue;
 	text-transform: uppercase;
+	width: 100px;
+}
+
+.moveUp {
+	color: green;
+	width: 100px;
+}
+.moveDown {
+	color: green;
+	width: 100px;
+}
+
+.answer {
+	font-weight: bold;
+	width: 200px;
 }

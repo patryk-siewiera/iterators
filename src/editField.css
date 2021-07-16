@@ -16,3 +16,10 @@
 .answers {
 	display: block;
 }
+
+.remove {
+	color: red;
+}
+.save {
+	color: green;
+}

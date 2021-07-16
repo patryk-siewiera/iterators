@@ -47,10 +47,15 @@ function App({ onEdit }) {
 					{formList.map((e) => {
 						return (
 							<li>
-								<div className="name">Name: {e.name}</div>
-								<div className="desc">
-									Desc: {e.description}
+								<div className="name">
+									Name of list:<b> {e.name}</b>
 								</div>
+								<div className="desc">
+									Description: <i>{e.description}</i>
+								</div>
+								<button className="answer">
+									Answer Questions
+								</button>
 								<div className="actions">
 									<button
 										className="edit"
@@ -60,14 +65,15 @@ function App({ onEdit }) {
 									>
 										edit
 									</button>
-									<button className="moveUp">moveUp</button>
 									<button className="delete">Delete</button>
-									<button className="moveDown">
-										moveDown
-									</button>
-									<button className="answer">
-										Answer Questions
-									</button>
+									<div className="move">
+										<button className="moveUp">
+											moveUp
+										</button>
+										<button className="moveDown">
+											moveDown
+										</button>
+									</div>
 								</div>
 							</li>
 						);
