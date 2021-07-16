@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import EditField from "./editField";
+
+function newQuestion(question, type) {
+	const form = {
+		question: question,
+		type: type,
+	};
+	return form;
+}
 
 export default function EditForm(props) {
+	const [question, setQuestion] = useState([]);
 	return (
 		<div>
 			<button
@@ -13,7 +23,20 @@ export default function EditForm(props) {
 			</button>{" "}
 			<h1>EDIT FORM</h1>
 			<div>{JSON.stringify(props)}</div>
-			<button>add new field </button>
+			<EditField />
+			{question.map((e) => {
+				return <EditField />;
+			})}
+			<button
+				onClick={(ev) => {
+					const newQuestionList = [
+						...question.concat(newQuestion("a", "b")),
+					];
+					setQuestion(newQuestionList);
+				}}
+			>
+				add new field{" "}
+			</button>
 			<button>save</button>
 		</div>
 	);
