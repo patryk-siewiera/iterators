@@ -7,3 +7,12 @@
 .question {
 	width: 500px;
 }
+
+.longAnswer {
+	height: 100px;
+	width: 300px;
+}
+
+.answers {
+	display: block;
+}
