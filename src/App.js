@@ -9,7 +9,7 @@ function newForm(name, description) {
 	return form;
 }
 
-function App() {
+function App({ onEdit }) {
 	const [formList, setFormList] = useState([]);
 	const [name, setName] = useState("");
 	const [desc, setDesc] = useState("");
@@ -53,7 +53,14 @@ function App() {
 									Desc: {e.description}
 								</div>
 								<div className="actions">
-									<button className="edit">edit</button>
+									<button
+										className="edit"
+										onClick={() => {
+											onEdit(e, e.id, e.name);
+										}}
+									>
+										edit
+									</button>
 									<button className="moveUp">moveUp</button>
 									<button className="delete">Delete</button>
 									<button className="moveDown">
