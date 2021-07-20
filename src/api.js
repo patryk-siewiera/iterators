@@ -14,6 +14,11 @@ const api = {
 					name: "Kwestionariusz",
 					questions: "use .getFormQuestions",
 				},
+				{
+					id: 0,
+					name: "Kwestionariusz2",
+					questions: "use .getFormQuestions",
+				},
 				...formsArray,
 			]);
 		});
@@ -29,7 +34,18 @@ const api = {
 	},
 	createForm(data) {
 		fetch("/form", { method: "POST" });
-		formsArray.push(data);
+		if (!data.name?.length) {
+			// throw new Error('missing name')
+			return Promise.reject({ error: "missing name" });
+		}
+		const maxSoFar = Math.max(
+			...formsArray.map((f) => f.id).filter(Boolean),
+			0
+		);
+		formsArray.push({
+			...data,
+			id: maxSoFar + 1,
+		});
 		return Promise.resolve(data);
 	},
 	createQuestion(id, data) {
@@ -68,7 +84,7 @@ const api = {
 	},
 };
 
-export default api
+export default api;
 
 /*
 function AddFrom(params) {

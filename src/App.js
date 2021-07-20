@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import api from "./api";
 
 function newForm(name, description) {
 	const form = {
@@ -13,6 +14,15 @@ function App({ onEdit }) {
 	const [formList, setFormList] = useState([]);
 	const [name, setName] = useState("");
 	const [desc, setDesc] = useState("");
+
+	function refreshForms() {
+		return api.getForms().then((forms) => setFormList(forms));
+	}
+
+	useEffect(() => {
+		refreshForms();
+	}, []);
+
 	return (
 		<div className="App">
 			<div className="addNewList">
@@ -36,7 +46,13 @@ function App({ onEdit }) {
 				<button
 					type="submit"
 					onClick={(e) =>
-						setFormList(formList.concat(newForm(name, desc)))
+						// setFormList(formList.concat(newForm(name, desc)))
+						api
+							.createForm({ name, desc })
+							.then((r) => {
+								refreshForms();
+							})
+							.catch((err) => alert(JSON.stringify(err)))
 					}
 				>
 					New form
@@ -65,7 +81,21 @@ function App({ onEdit }) {
 									>
 										edit
 									</button>
-									<button className="delete">Delete</button>
+									<button
+										className="delete"
+										onClick={() => {
+											console.warn(
+												"delete form id",
+												e.id
+											);
+											api.deleteForm(e.id).then(
+												refreshForms
+												// () => refreshForms()
+											);
+										}}
+									>
+										Delete
+									</button>
 									<div className="move">
 										<button className="moveUp">
 											moveUp

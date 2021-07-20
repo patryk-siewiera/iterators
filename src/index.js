@@ -7,7 +7,7 @@ import EditForm from "./editForm";
 ReactDOM.render(<MyApp />, document.getElementById("root"));
 
 function MyApp() {
-	const [page, setPage] = useState("edit");
+	const [page, setPage] = useState("app");
 	const [id, setId] = useState({});
 	return (
 		<React.StrictMode>
