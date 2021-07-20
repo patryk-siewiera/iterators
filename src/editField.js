@@ -5,6 +5,11 @@ export default function EditField() {
 	const [questionType, setQuestionType] = useState("");
 	return (
 		<div className="editField">
+			<input
+				className="questionField"
+				type="text"
+				placeholder="question..."
+			/>
 			<select
 				name="questionType"
 				onChange={(ev) => setQuestionType(ev.target.value)}
@@ -38,15 +43,17 @@ export default function EditField() {
 					<input
 						className="shortAnswer"
 						type="text"
-						placeholder="question..."
+						placeholder="answer..."
+						disabled
 					/>
 				)}
 				{questionType === "longAnswer" && (
 					<textarea
 						className="longAnswer"
 						type="text"
-						placeholder="question..."
+						placeholder="answer..."
 						rows="5"
+						disabled
 					/>
 				)}
 				{questionType === "oneAnswer" && (
