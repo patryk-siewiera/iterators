@@ -33,17 +33,15 @@ export default function EditField() {
 					<input
 						className="shortAnswer"
 						type="text"
-						placeholder="answer..."
-						disabled
+						placeholder="placeholder text..."
 					/>
 				)}
 				{questionType === "longAnswer" && (
 					<textarea
 						className="longAnswer"
 						type="text"
-						placeholder="answer..."
 						rows="5"
-						disabled
+						placeholder="placeholder text..."
 					/>
 				)}
 				{questionType === "oneAnswer" && (

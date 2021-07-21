@@ -1,0 +1,19 @@
+.backButton {
+	width: 100px;
+	margin: 20px;
+}
+
+.singleQuestion {
+	width: 200px;
+	margin: 30px;
+}
+
+.inputBoxShort {
+	width: 300px;
+}
+
+.inputBoxLong {
+	width: 300px;
+	height: 100px;
+}
+

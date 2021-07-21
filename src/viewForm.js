@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import api from "./api";
 import { useState, useEffect } from "react";
+import "./viewForm.css";
 
 export default function ViewForm(props) {
 	const { id } = useParams();
@@ -22,6 +23,7 @@ export default function ViewForm(props) {
 			<div>this is view form, {id}.</div>
 			<div>
 				<button
+					className="backButton"
 					onClick={() => {
 						history.push("/");
 					}}
@@ -33,7 +35,7 @@ export default function ViewForm(props) {
 
 			{questions.map((q) => {
 				return (
-					<div>
+					<div className="singleQuestion">
 						{q.type === "shortAnswer" && (
 							<ShortAnswer question={q} />
 						)}
@@ -69,6 +71,7 @@ function ShortAnswer({ question, children }) {
 			<div>
 				{children || (
 					<input
+						className="inputBoxShort"
 						type="text"
 						placeholder="Your answer..."
 						value={value}
@@ -85,7 +88,10 @@ function LongAnswer({ question, ...props }) {
 	// reactjs: render function design pattern
 	return (
 		<ShortAnswer question={question}>
-			<textarea onChange={(ev) => setValue(ev.target.value)}>
+			<textarea
+				className="inputBoxLong"
+				onChange={(ev) => setValue(ev.target.value)}
+			>
 				{value}
 			</textarea>
 			{value}
