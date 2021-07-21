@@ -1,7 +1,6 @@
-import React from "react";
-import { useParams, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import api from "./api";
-import { useState, useEffect } from "react";
 import "./viewForm.css";
 
 export default function ViewForm(props) {
@@ -40,6 +39,12 @@ export default function ViewForm(props) {
 							<ShortAnswer question={q} />
 						)}
 						{q.type === "longAnswer" && <LongAnswer question={q} />}
+						{q.type === "oneAnswer" && <OneAnswer question={q} />}
+						{q.type === "multipleAnswer" && (
+							<MultipleAnswer question={q} />
+						)}
+						{q.type === "line" && <Line question={q} />}
+
 						{/* {{ shortAnswer: <ShortAnswer /> }[q.type]} */}
 						{/* {getRenderer(q)} */}
 					</div>
@@ -97,4 +102,18 @@ function LongAnswer({ question, ...props }) {
 			{value}
 		</ShortAnswer>
 	);
+}
+
+function OneAnswer({ question }) {
+	const [value, setValue] = useState("");
+	return <div>oneAnswer</div>;
+}
+
+function MultipleAnswer() {
+	const [value, setValue] = useState("");
+	return <div>MultipleAnswer</div>;
+}
+function Line() {
+	const [value, setValue] = useState("");
+	return <div>Line</div>;
 }

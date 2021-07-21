@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import {
+    BrowserRouter as Router, Route, Switch, useHistory,
+    useParams
+} from "react-router-dom";
 import App from "./App";
 import EditForm from "./editForm";
+import "./index.css";
 import ViewForm from "./viewForm";
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useHistory,
-	useParams,
-} from "react-router-dom";
 
 ReactDOM.render(<MyApp />, document.getElementById("root"));
 
