@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
+import { Api } from "./api";
 
 export default function ViewForm(props) {
 	const { id } = useParams();

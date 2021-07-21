@@ -81,7 +81,7 @@ function App({ onEdit, onView }) {
 									<button
 										className="edit"
 										onClick={() => {
-											onEdit(e, e.id, e.name);
+											onEdit(e.id, e);
 										}}
 									>
 										edit

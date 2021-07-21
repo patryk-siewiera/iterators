@@ -35,7 +35,7 @@ function Routes(params) {
 			<Route exact path="/">
 				<App
 					onEdit={(id) => {
-						history.push("/edit/:id");
+						history.push(`/edit/${id}`);
 					}}
 					onView={(id) => {
 						history.push(`/view/${id}`);
