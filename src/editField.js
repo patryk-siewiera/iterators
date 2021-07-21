@@ -20,8 +20,7 @@ export default function EditField() {
 				<option value="multipleAnswer">Multiple Answer</option>
 				<option value="line">Line</option>
 			</select>
-
-			<label>
+			<label className="required">
 				<input
 					value="Add option"
 					type="checkbox"
@@ -29,16 +28,7 @@ export default function EditField() {
 				/>
 				Required
 			</label>
-			<button type="button" className="remove">
-				Remove this field
-			</button>
-			<button type="button" className="moveUp">
-				Move Up
-			</button>
-			<button type="button" className="moveDown">
-				Move down
-			</button>
-			<div className="question">
+			<div className="questionToAnswer">
 				{questionType === "shortAnswer" && (
 					<input
 						className="shortAnswer"
@@ -86,15 +76,22 @@ export default function EditField() {
 						</label>
 						<label>
 							<input type="checkbox" name="answer" /> answer
-						</label>
+						</label>{" "}
 						<button>add more </button>
 					</div>
 				)}
-
 				{questionType === "line" && (
 					<div>
-						<input type="text" placeholder="Minimum value..." />
-						<input type="text" placeholder="Maximum value..." />
+						<input
+							type="text"
+							placeholder="Minimum value..."
+							className="linebox"
+						/>
+						<input
+							type="text"
+							placeholder="Maximum value..."
+							className="linebox"
+						/>
 					</div>
 				)}
 			</div>
@@ -109,6 +106,17 @@ export default function EditField() {
 					Allow other answer
 				</label>
 			)}
+			<div className="buttonBox">
+				<button type="button" className="remove">
+					Remove this field
+				</button>
+				<button type="button" className="moveUp">
+					Move Up
+				</button>
+				<button type="button" className="moveDown">
+					Move down
+				</button>
+			</div>
 		</div>
 	);
 }

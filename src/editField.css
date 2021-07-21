@@ -4,8 +4,29 @@
 	margin: 1rem;
 }
 
-.question {
+.questionToAnswer {
 	width: 500px;
+	margin: 10px 0px 20px 5px;
+}
+
+.questionField {
+	width: 20rem;
+	margin: 5px;
+}
+
+select {
+	margin: 5px;
+}
+
+.required {
+	margin: 5px;
+}
+.linebox {
+	margin: 0px 12px 0px 0px;
+	width: 150px;
+}
+.multipleAnswer {
+	margin: 500px;
 }
 
 .longAnswer {
@@ -22,4 +43,8 @@
 }
 .save {
 	color: green;
+}
+
+.buttonBox {
+	margin: 5px;
 }
