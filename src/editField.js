@@ -60,7 +60,9 @@ export default function EditField() {
 						<label>
 							<input type="radio" name="answer" /> answer
 						</label>
-						<button>add more </button>
+						<div className="addMore">
+							<button className="addMore">add more </button>
+						</div>
 					</div>
 				)}
 				{questionType === "multipleAnswer" && (
@@ -77,7 +79,9 @@ export default function EditField() {
 						<label>
 							<input type="checkbox" name="answer" /> answer
 						</label>{" "}
-						<button>add more </button>
+						<div className="addMore">
+							<button>add more </button>
+						</div>
 					</div>
 				)}
 				{questionType === "line" && (
