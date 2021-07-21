@@ -13,7 +13,7 @@ function newForm(name, description) {
 function App({ onEdit }) {
 	const [formList, setFormList] = useState([]);
 	const [name, setName] = useState("");
-	const [desc, setDesc] = useState("");
+	const [description, setDescription] = useState("");
 
 	function refreshForms() {
 		return api.getForms().then((forms) => setFormList(forms));
@@ -36,11 +36,11 @@ function App({ onEdit }) {
 					value={name}
 				/>
 				<input
-					onChange={(ev) => setDesc(ev.target.value)}
+					onChange={(ev) => setDescription(ev.target.value)}
 					type="text"
 					placeholder="List Desciption"
 					id="description"
-					value={desc}
+					value={description}
 				/>
 				{/* https://youtu.be/pCA4qpQDZD8?t=1160 */}
 				<button
@@ -48,7 +48,7 @@ function App({ onEdit }) {
 					onClick={(e) =>
 						// setFormList(formList.concat(newForm(name, desc)))
 						api
-							.createForm({ name, desc })
+							.createForm({ name, description })
 							.then((r) => {
 								refreshForms();
 							})

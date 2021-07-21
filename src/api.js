@@ -3,11 +3,13 @@ let formsArray = [
 		id: 0,
 		name: "Kwestionariusz",
 		questions: "use .getFormQuestions",
+		description: "desc of first form",
 	},
 	{
 		id: 1,
 		name: "Kwestionariusz2 template questions",
 		questions: "use .getFormQuestions",
+		description: "second description",
 	},
 ];
 
@@ -42,6 +44,11 @@ let formsQuestions = {
 		range: [0, 10],
 		required: false,
 	},
+};
+
+let questionToForm = {
+	0: [0, 1, 2],
+	1: [3, 4],
 };
 
 const api = {
