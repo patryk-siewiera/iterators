@@ -21,7 +21,7 @@ function App({ onEdit, onView }) {
 
 	useEffect(() => {
 		refreshForms();
-	}, []);
+	}, []); 
 
 	return (
 		<div className="App">

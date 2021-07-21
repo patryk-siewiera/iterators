@@ -46,7 +46,13 @@ let formsQuestions = {
 	},
 };
 
-let questionToForm = {
+const allFormQuestionsByFormId = (formId) => {
+	return questionInForms[formId].map(
+		(questionId) => formsQuestions[questionId]
+	);
+};
+
+let questionInForms = {
 	0: [0, 1, 2],
 	1: [3, 4],
 };
@@ -61,10 +67,7 @@ const api = {
 	getFormQuestions(id) {
 		fetch("/questions/" + id);
 		return new Promise((res, rej) => {
-			res([
-				{ id: 44, text: "wiek", type: "shortAnswer" },
-				{ id: 45, text: "imie i nazwisko", type: "shortAnswer" },
-			]);
+			res(allFormQuestionsByFormId(id));
 		});
 	},
 	createForm(data) {
