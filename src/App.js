@@ -10,7 +10,7 @@ function newForm(name, description) {
 	return form;
 }
 
-function App({ onEdit }) {
+function App({ onEdit, onView }) {
 	const [formList, setFormList] = useState([]);
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
@@ -62,51 +62,55 @@ function App({ onEdit }) {
 				<ul>
 					{formList.map((e) => {
 						return (
-								<li>
-									<div className="name">
-										Name of list:<b> {e.name}</b>
-									</div>
-									<div className="desc">
-										Description: <i>{e.description}</i>
-									</div>
-									<button className="answer">
-										Answer Questions
+							<li>
+								<div className="name">
+									Name of list:<b> {e.name}</b>
+								</div>
+								<div className="desc">
+									Description: <i>{e.description}</i>
+								</div>
+								<button
+									className="answer"
+									onClick={() => {
+										onView(e.id, e);
+									}}
+								>
+									Answer Questions
+								</button>
+								<div className="actions">
+									<button
+										className="edit"
+										onClick={() => {
+											onEdit(e, e.id, e.name);
+										}}
+									>
+										edit
 									</button>
-									<div className="actions">
-										<button
-											className="edit"
-											onClick={() => {
-												onEdit(e, e.id, e.name);
-											}}
-										>
-											edit
+									<button
+										className="delete"
+										onClick={() => {
+											console.warn(
+												"delete form id",
+												e.id
+											);
+											api.deleteForm(e.id).then(
+												refreshForms
+												// () => refreshForms()
+											);
+										}}
+									>
+										Delete
+									</button>
+									<div className="move">
+										<button className="moveUp">
+											moveUp
 										</button>
-										<button
-											className="delete"
-											onClick={() => {
-												console.warn(
-													"delete form id",
-													e.id
-												);
-												api.deleteForm(e.id).then(
-													refreshForms
-													// () => refreshForms()
-												);
-											}}
-										>
-											Delete
+										<button className="moveDown">
+											moveDown
 										</button>
-										<div className="move">
-											<button className="moveUp">
-												moveUp
-											</button>
-											<button className="moveDown">
-												moveDown
-											</button>
-										</div>
 									</div>
-								</li>
-						
+								</div>
+							</li>
 						);
 					})}
 				</ul>
