@@ -65,16 +65,30 @@ li {
 }
 
 .moveUp {
-	color: green;
 	width: 100px;
 }
 .moveDown {
-	color: green;
 	width: 100px;
 }
 
-.answer {
+.answerQuestion {
 	font-weight: bold;
-	width: 200px;
+	width: 100px;
+	height: 50px;
+	color: green;
 }
 
+.viewAnswers {
+	font-weight: 700;
+	width: 100px;
+	height: 50px;
+	color: purple;
+}
+
+.viewAnswers:hover {
+	background-color: rgb(218, 218, 216);
+}
+
+.answerQuestion:hover {
+	background-color: rgb(218, 218, 216);
+}

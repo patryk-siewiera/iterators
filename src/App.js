@@ -21,7 +21,7 @@ function App({ onEdit, onView }) {
 
 	useEffect(() => {
 		refreshForms();
-	}, []); 
+	}, []);
 
 	return (
 		<div className="App">
@@ -70,12 +70,15 @@ function App({ onEdit, onView }) {
 									Description: <i>{e.description}</i>
 								</div>
 								<button
-									className="answer"
+									className="answerQuestion"
 									onClick={() => {
 										onView(e.id, e);
 									}}
 								>
 									Answer Questions
+								</button>
+								<button className="viewAnswers">
+									View answers
 								</button>
 								<div className="actions">
 									<button
