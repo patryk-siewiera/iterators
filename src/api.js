@@ -1,26 +1,54 @@
-let formsArray = [];
+let formsArray = [
+	{
+		id: 0,
+		name: "Kwestionariusz",
+		questions: "use .getFormQuestions",
+	},
+	{
+		id: 1,
+		name: "Kwestionariusz2 template questions",
+		questions: "use .getFormQuestions",
+	},
+];
 
 let formsQuestions = {
-	0: [],
+	0: {
+		type: "shortAnswer",
+		question: "What your age?",
+		required: true,
+	},
+	1: {
+		type: "longAnswer",
+		question: "Could you describe best travel in your life?",
+		required: false,
+	},
+	2: {
+		type: "oneAnswer",
+		question: "Where you live?",
+		options: ["Poland", "Germany", "Russia"],
+		additionalAnswers: true,
+		required: true,
+	},
+	3: {
+		type: "oneAnswer",
+		question: "What languages do you speak?",
+		options: ["Polish", "English", "German"],
+		additionalAnswers: false,
+		required: false,
+	},
+	4: {
+		type: "line",
+		question: "How well you swim?",
+		range: [0, 10],
+		required: false,
+	},
 };
 
 const api = {
 	getForms() {
 		fetch("/forms"); // just for informing which requests are taking place in network tab
 		return new Promise((res, reject) => {
-			res([
-				{
-					id: 0,
-					name: "Kwestionariusz",
-					questions: "use .getFormQuestions",
-				},
-				{
-					id: 0,
-					name: "Kwestionariusz2",
-					questions: "use .getFormQuestions",
-				},
-				...formsArray,
-			]);
+			res([...formsArray]);
 		});
 	},
 	getFormQuestions(id) {
