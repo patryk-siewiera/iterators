@@ -16,31 +16,31 @@ let formsArray = [
 let formsQuestions = {
 	0: {
 		type: "shortAnswer",
-		question: "What your age?",
+		text: "What your age?",
 		required: true,
 	},
 	1: {
 		type: "longAnswer",
-		question: "Could you describe best travel in your life?",
+		text: "Could you describe best travel in your life?",
 		required: false,
 	},
 	2: {
 		type: "oneAnswer",
-		question: "Where you live?",
+		text: "Where you live?",
 		options: ["Poland", "Germany", "Russia"],
 		additionalAnswers: true,
 		required: true,
 	},
 	3: {
-		type: "oneAnswer",
-		question: "What languages do you speak?",
+		type: "multipleAnswer",
+		text: "What languages do you speak?",
 		options: ["Polish", "English", "German"],
 		additionalAnswers: false,
 		required: false,
 	},
 	4: {
 		type: "line",
-		question: "How well you swim?",
+		text: "How well you swim?",
 		range: [0, 10],
 		required: false,
 	},
