@@ -16,3 +16,12 @@
 .addMore {
 	margin: 5px 0px 0px 0px;
 }
+
+body {
+	text-align: center;
+}
+
+.questionToAnswer {
+	text-align: center;
+	width: auto;
+}

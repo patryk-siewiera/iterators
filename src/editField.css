@@ -1,7 +1,8 @@
 .editField {
 	border-style: dashed;
 	padding: 1rem;
-	margin: 1rem;
+	max-width: 72rem;
+	margin: auto;
 }
 
 .questionToAnswer {

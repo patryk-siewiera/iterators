@@ -32,24 +32,31 @@ export default function ViewForm(props) {
 				</button>
 			</div>
 
-			{questions.map((q) => {
-				return (
-					<div className="singleQuestion">
-						{q.type === "shortAnswer" && (
-							<ShortAnswer question={q} />
-						)}
-						{q.type === "longAnswer" && <LongAnswer question={q} />}
-						{q.type === "oneAnswer" && <OneAnswer question={q} />}
-						{q.type === "multipleAnswer" && (
-							<MultipleAnswer question={q} />
-						)}
-						{q.type === "line" && <Line question={q} />}
+			<div className="answersViewForm">
+				{" "}
+				{questions.map((q) => {
+					return (
+						<div className="singleQuestion">
+							{q.type === "shortAnswer" && (
+								<ShortAnswer question={q} />
+							)}
+							{q.type === "longAnswer" && (
+								<LongAnswer question={q} />
+							)}
+							{q.type === "oneAnswer" && (
+								<OneAnswer question={q} />
+							)}
+							{q.type === "multipleAnswer" && (
+								<MultipleAnswer question={q} />
+							)}
+							{q.type === "line" && <Line question={q} />}
 
-						{/* {{ shortAnswer: <ShortAnswer /> }[q.type]} */}
-						{/* {getRenderer(q)} */}
-					</div>
-				);
-			})}
+							{/* {{ shortAnswer: <ShortAnswer /> }[q.type]} */}
+							{/* {getRenderer(q)} */}
+						</div>
+					);
+				})}
+			</div>
 		</div>
 	);
 }
@@ -106,7 +113,16 @@ function LongAnswer({ question, ...props }) {
 
 function OneAnswer({ question }) {
 	const [value, setValue] = useState("");
-	return <div>oneAnswer</div>;
+
+	return (
+		<div>
+			<input type="radio" label="aaa" />
+			<input type="radio" />
+			<input type="radio" />
+			<input type="radio" />
+			<input type="radio" />
+		</div>
+	);
 }
 
 function MultipleAnswer() {

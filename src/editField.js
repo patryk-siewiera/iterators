@@ -85,12 +85,12 @@ export default function EditField() {
 				{questionType === "line" && (
 					<div>
 						<input
-							type="text"
+							type="number"
 							placeholder="Minimum value..."
 							className="linebox"
 						/>
 						<input
-							type="text"
+							type="number"
 							placeholder="Maximum value..."
 							className="linebox"
 						/>
