@@ -1,10 +1,9 @@
 .backButton {
 	width: 100px;
-	margin: 20px;
+	margin-top: 40px;
 }
 
 .singleQuestion {
-	width: 200px;
 	margin: 30px;
 }
 
@@ -15,5 +14,14 @@
 .inputBoxLong {
 	width: 300px;
 	height: 100px;
+}
+
+.labelOneAnswer {
+	display: block;
+	margin: 12px;
+}
+
+body {
 	text-align: center;
+	margin: auto;
 }

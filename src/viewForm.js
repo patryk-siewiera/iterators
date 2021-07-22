@@ -19,7 +19,6 @@ export default function ViewForm(props) {
 	// debugger;
 	return (
 		<div>
-			<div>this is view form, {id}.</div>
 			<div>
 				<button
 					className="backButton"
@@ -115,19 +114,49 @@ function OneAnswer({ question }) {
 	const [value, setValue] = useState("");
 
 	return (
-		<div>
-			<input type="radio" label="aaa" />
-			<input type="radio" />
-			<input type="radio" />
-			<input type="radio" />
-			<input type="radio" />
+		<div className="oneAnswer">
+			<form>
+				{question.text}
+				{question.options.map((ans) => {
+					return (
+						<label className="labelOneAnswer">
+							<input
+								type="radio"
+								label="radio"
+								name="oneAnswer"
+								onChange={(ev) => setValue(ev.target.value)}
+							/>
+							{ans}
+						</label>
+					);
+				})}
+			</form>
 		</div>
 	);
 }
 
-function MultipleAnswer() {
+function MultipleAnswer({ question }) {
 	const [value, setValue] = useState("");
-	return <div>MultipleAnswer</div>;
+	return (
+		<div className="oneAnswer">
+			<form>
+				{question.text}
+				{question.options.map((ans) => {
+					return (
+						<label className="labelOneAnswer">
+							<input
+								type="checkbox"
+								label="checkbox"
+								name="oneAnswer"
+								onChange={(ev) => setValue(ev.target.value)}
+							/>
+							{ans}
+						</label>
+					);
+				})}
+			</form>
+		</div>
+	);
 }
 function Line() {
 	const [value, setValue] = useState("");

@@ -106,14 +106,6 @@ function App({ onEdit, onView }) {
 									>
 										Delete
 									</button>
-									<div className="move">
-										<button className="moveUp">
-											moveUp
-										</button>
-										<button className="moveDown">
-											moveDown
-										</button>
-									</div>
 								</div>
 							</li>
 						);
