@@ -63,11 +63,13 @@ function App({ onEdit, onView }) {
 					{formList.map((e) => {
 						return (
 							<li>
-								<div className="name">
-									Name of list:<b> {e.name}</b>
-								</div>
-								<div className="desc">
-									Description: <i>{e.description}</i>
+								<div className="nameAndDesc">
+									<div className="name">
+										<b> {e.name}</b>
+									</div>
+									<div className="desc">
+										<i>{e.description}</i>
+									</div>
 								</div>
 								<button
 									className="answerQuestion"
