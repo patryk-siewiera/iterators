@@ -10,7 +10,7 @@ function newForm(name, description) {
 	return form;
 }
 
-function App({ onEdit, onView }) {
+function App({ onEdit, onView, onAnswer }) {
 	const [formList, setFormList] = useState([]);
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
@@ -82,7 +82,10 @@ function App({ onEdit, onView }) {
 								>
 									Answer Questions
 								</button>
-								<button className="viewAnswers">
+								<button
+									className="viewAnswers"
+									onClick={() => onAnswer(e.id, e)}
+								>
 									View answers
 								</button>
 								<div className="actions">
