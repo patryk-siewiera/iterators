@@ -74,10 +74,15 @@ li {
 	background-color: rgb(230, 230, 106);
 }
 
+@media (min-width: 768px) {
+	ul {
+		grid-template-columns: 1fr 1fr 1fr;
+		margin: auto;
+	}
+}
 ul {
 	padding-top: 20px;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
 	list-style-type: none;
 	max-width: 80rem;
 	margin: auto;
@@ -88,8 +93,8 @@ li {
 	border-width: 1px;
 	border-radius: 20px;
 	border-color: rgba(128, 128, 128, 0.397);
-	margin: 20px;
-	padding: 10px;
+	margin: 20px 40px 20px 0px;
+	padding: 10px 0px 10px;
 	text-align: center;
 	--tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
 		0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -97,6 +102,10 @@ li {
 		var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+ol {
+	margin: 0;
+	padding: 0;
+}
 .nameAndDesc {
 	height: 6rem;
 }
