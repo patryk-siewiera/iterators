@@ -1,15 +1,21 @@
 let formsArray = [
 	{
 		id: 0,
-		name: "Kwestionariusz",
+		name: "Questions Basics",
 		questions: "use .getFormQuestions",
-		description: "desc of first form",
+		description: "text inputs",
 	},
 	{
 		id: 1,
-		name: "Kwestionariusz2 template questions",
+		name: "Questions 2",
 		questions: "use .getFormQuestions",
-		description: "second description",
+		description: "radio, checkboxes and line type",
+	},
+	{
+		id: 2,
+		name: "Questions 3",
+		questions: "use .getFormQuestions",
+		description: "all type mixed",
 	},
 ];
 
@@ -44,6 +50,45 @@ let formsQuestions = {
 		range: [0, 10],
 		required: false,
 	},
+	5: {
+		type: "shortAnswer",
+		text: "What your name?",
+		required: true,
+	},
+	6: {
+		type: "longAnswer",
+		text: "Descibe your favourite animal?",
+		required: false,
+	},
+	7: {
+		type: "oneAnswer",
+		text: "Do you like programming?",
+		options: ["True", "False"],
+		additionalAnswers: true,
+		required: true,
+	},
+	8: {
+		type: "multipleAnswer",
+		text: "What type of music you listen?",
+		options: [
+			"Jazz",
+			"Rock",
+			"Pop",
+			"Indie",
+			"Folk",
+			"Hip Hop",
+			"Blues",
+			"Country",
+		],
+		additionalAnswers: false,
+		required: false,
+	},
+	9: {
+		type: "line",
+		text: "How often you dance?",
+		range: [0, 30],
+		required: true,
+	},
 };
 
 const allFormQuestionsByFormId = (formId) => {
@@ -52,9 +97,35 @@ const allFormQuestionsByFormId = (formId) => {
 	);
 };
 
+const viewAnswersByFormId = (formId) => {
+	return JSON.stringify(answersToForms);
+};
+
 let questionInForms = {
 	0: [0, 1, 2],
 	1: [2, 3, 4],
+	2: [5, 6, 7, 8, 9],
+};
+
+let answersToForms = {
+	0: {
+		0: {
+			0: "30",
+			1: "Boasting one of the biggest and baddest national parks in Serengeti and 16 national parks in total, Tanzania is the perfect place to watch the annual wildebeest migration. Watching baby elephants playing with their moms and pops in the muddy Rufiji/Tarangire River is one of the epic lifetime experiences to keep in your memories bright for decades.",
+			2: ["Poland", "Germany"],
+		},
+		1: {
+			0: "44",
+			1: "Now if you have enough skills and bald courage, heli-skiing is one of the life changing experiences! Named as best for “Off-the-beaten-path powder hounds with an aversion to glamour” by Nat Geo, Girdwood has loads of incredible hills and off-pistes where you can be the first one to shake off the powder. Day trips with 16,000-18,000 vertical feet of skiing guaranteed start from $1,275 per person.",
+			2: ["Germany"],
+		},
+		2: {
+			0: "11",
+			1: "Meditate with a view of gorgeous Lake Mulshi, while nourishing your body with special foods and your soul with healing practices. Yoga holidays will bring the much needed balance back into your life and allow you to discover something new about yourself. Besides, you can’t miss some of the most amazing temples in whole India – Shreemant Dagdusheth Halwai Sarvajanik Ganpati and iconic ISKCON NVCC Temple!",
+			2: ["English"],
+		},
+	},
+	1: { 0: { "What languages do you speak": "" } },
 };
 
 const api = {
@@ -68,6 +139,13 @@ const api = {
 		fetch("/questions/" + id);
 		return new Promise((res, rej) => {
 			res(allFormQuestionsByFormId(id));
+		});
+	},
+
+	getAnswers(id) {
+		fetch("/answers/" + id);
+		return new Promise((res, rej) => {
+			res(viewAnswersByFormId);
 		});
 	},
 	createForm(data) {

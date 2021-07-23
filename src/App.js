@@ -28,6 +28,9 @@ function App({ onEdit, onView }) {
 			<div className="addNewList">
 				{" "}
 				<h1>PS forms</h1>
+				<div className="refreshWarning">
+					after <b>refresh</b> app will load default data!
+				</div>
 				<input
 					onChange={(ev) => setName(ev.target.value)}
 					type="text"

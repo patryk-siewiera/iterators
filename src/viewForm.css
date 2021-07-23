@@ -25,3 +25,8 @@ body {
 	text-align: center;
 	margin: auto;
 }
+
+.slider {
+	width: 300px;
+	margin: 12px;
+}

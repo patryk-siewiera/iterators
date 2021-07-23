@@ -100,3 +100,8 @@ li {
 .nameAndDesc {
 	height: 6rem;
 }
+
+.refreshWarning {
+	margin-bottom: 20px;
+	color: red;
+}

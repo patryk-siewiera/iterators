@@ -88,11 +88,15 @@ export default function EditField() {
 							type="number"
 							placeholder="Minimum value..."
 							className="linebox"
+							min="0"
+							max="100"
 						/>
 						<input
 							type="number"
 							placeholder="Maximum value..."
 							className="linebox"
+							min="0"
+							max="100"
 						/>
 					</div>
 				)}

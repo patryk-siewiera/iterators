@@ -102,10 +102,7 @@ function LongAnswer({ question, ...props }) {
 			<textarea
 				className="inputBoxLong"
 				onChange={(ev) => setValue(ev.target.value)}
-			>
-				{value}
-			</textarea>
-			{value}
+			></textarea>
 		</ShortAnswer>
 	);
 }
@@ -117,6 +114,7 @@ function OneAnswer({ question }) {
 		<div className="oneAnswer">
 			<form>
 				{question.text}
+				{question.required && " (required)"}
 				{question.options.map((ans) => {
 					return (
 						<label className="labelOneAnswer">
@@ -141,6 +139,7 @@ function MultipleAnswer({ question }) {
 		<div className="oneAnswer">
 			<form>
 				{question.text}
+				{question.required && "(required)"}
 				{question.options.map((ans) => {
 					return (
 						<label className="labelOneAnswer">
@@ -158,7 +157,23 @@ function MultipleAnswer({ question }) {
 		</div>
 	);
 }
-function Line() {
+function Line({ question }) {
 	const [value, setValue] = useState("");
-	return <div>Line</div>;
+	return (
+		<form>
+			{question.text}
+			{question.required && " (required)"}
+			<div className="sliderContainer">
+				<input
+					type="range"
+					min={question.range[0]}
+					max={question.range[1]}
+					class="slider"
+					id="myRange"
+					onChange={(ev) => setValue(ev.target.value)}
+				/>
+				{value}
+			</div>
+		</form>
+	);
 }
