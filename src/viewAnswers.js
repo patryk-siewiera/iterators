@@ -4,16 +4,29 @@ import api from "./api";
 
 export default function ViewAnswers(props) {
 	const { id } = useParams();
-	const [answer, setAnswer] = useState("");
+	const [answer, setAnswer] = useState([]);
 	const history = useHistory();
 
 	function getAnswersToDisplay(id) {
-		return api.getAnswers(id).then((q) => setAnswer(q));
+		return api.getAnswers(id);
 	}
 
+	const [answers, setAnswers] = useState([]);
+	const [answerIds, setAnswerIds] = useState([]);
+
 	useEffect(() => {
-		getAnswersToDisplay(id);
-	});
+		getAnswersToDisplay(id).then((q) => {
+			setAnswer(q);
+			// debugger;
+			setAnswers(Object.values(q));
+			setAnswerIds(Object.keys(q));
+		});
+	}, []);
+
+	function iterateOverObjects(data) {
+		console.log(data);
+		// data.map((e) => <div>{e}</div>);
+	}
 
 	return (
 		<>
@@ -22,8 +35,12 @@ export default function ViewAnswers(props) {
 					Go back{" "}
 				</button>
 			</div>
-			{JSON.stringify(answer[id], null, 2)}
-			{console.log(answer[id])}
+
+			<p>q ids: {JSON.stringify(answerIds)}</p>
+			<p>q textx: {JSON.stringify(answers.map((ans) => ans[1]))}</p>
+			<p>q options: {JSON.stringify(answers.map((ans) => ans[2]))}</p>
+
+			{JSON.stringify(answers)}
 		</>
 	);
 }

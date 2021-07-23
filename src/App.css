@@ -107,10 +107,14 @@ ol {
 	padding: 0;
 }
 .nameAndDesc {
-	height: 6rem;
+	height: 5rem;
 }
 
 .refreshWarning {
 	margin-bottom: 20px;
 	color: red;
+}
+
+.heightButtons {
+	padding: 0px 50px 20px 50px;
 }

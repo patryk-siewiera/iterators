@@ -46,20 +46,22 @@ function App({ onEdit, onView, onAnswer }) {
 					value={description}
 				/>
 				{/* https://youtu.be/pCA4qpQDZD8?t=1160 */}
-				<button
-					type="submit"
-					onClick={(e) =>
-						// setFormList(formList.concat(newForm(name, desc)))
-						api
-							.createForm({ name, description })
-							.then((r) => {
-								refreshForms();
-							})
-							.catch((err) => alert(JSON.stringify(err)))
-					}
-				>
-					New form
-				</button>
+				<div>
+					<button
+						type="submit"
+						onClick={(e) =>
+							// setFormList(formList.concat(newForm(name, desc)))
+							api
+								.createForm({ name, description })
+								.then((r) => {
+									refreshForms();
+								})
+								.catch((err) => alert(JSON.stringify(err)))
+						}
+					>
+						New form
+					</button>
+				</div>
 			</div>
 			<div className="list">
 				<ul>
@@ -74,20 +76,23 @@ function App({ onEdit, onView, onAnswer }) {
 										<i>{e.description}</i>
 									</div>
 								</div>
-								<button
-									className="answerQuestion"
-									onClick={() => {
-										onView(e.id, e);
-									}}
-								>
-									Answer Questions
-								</button>
-								<button
-									className="viewAnswers"
-									onClick={() => onAnswer(e.id, e)}
-								>
-									View answers
-								</button>
+								<div className="heightButtons">
+									{" "}
+									<button
+										className="answerQuestion"
+										onClick={() => {
+											onView(e.id, e);
+										}}
+									>
+										Answer Questions
+									</button>
+									<button
+										className="viewAnswers"
+										onClick={() => onAnswer(e.id, e)}
+									>
+										View answers
+									</button>
+								</div>
 								<div className="actions">
 									<button
 										className="edit"

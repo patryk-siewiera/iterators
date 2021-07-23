@@ -99,7 +99,7 @@ const allFormQuestionsByFormId = (formId) => {
 
 const viewAnswersByFormId = (formId) => {
 	// return JSON.stringify(answersToForms, null, 2);
-	return answersToForms;
+	return answersToForms[formId];
 };
 
 let questionInForms = {
@@ -126,7 +126,7 @@ let answersToForms = {
 			2: ["English"],
 		},
 	},
-	1: { 2: { "What languages do you speak": "" } },
+	1: { 0: { "What languages do you speak": "" } },
 };
 
 const api = {
@@ -146,7 +146,8 @@ const api = {
 	getAnswers(id) {
 		fetch("/answers/" + id);
 		return new Promise((res, rej) => {
-			res(viewAnswersByFormId);
+			// console.info("id", id, viewAnswersByFormId(id));
+			res(viewAnswersByFormId(id));
 		});
 	},
 	createForm(data) {
