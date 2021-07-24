@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {
-	BrowserRouter as Router,
-	Route,
-	Switch,
-	useHistory,
-	useParams,
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    useHistory,
+    useParams
 } from "react-router-dom";
 import App from "./App";
 import EditForm from "./editForm";
 import "./index.css";
-import ViewForm from "./viewForm";
 import ViewAnswers from "./viewAnswers";
+import ViewForm from "./viewForm";
 
 ReactDOM.render(<MyApp />, document.getElementById("root"));
 

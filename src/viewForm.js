@@ -26,7 +26,6 @@ export default function ViewForm(props) {
 						history.push("/");
 					}}
 				>
-					{console.log(questions)}
 					Back
 				</button>
 			</div>
@@ -34,7 +33,6 @@ export default function ViewForm(props) {
 			<div className="answersViewForm">
 				{" "}
 				{questions.map((q) => {
-					console.log(questions);
 					return (
 						<div className="singleQuestion">
 							{q.type === "shortAnswer" && (
@@ -59,17 +57,6 @@ export default function ViewForm(props) {
 			</div>
 		</div>
 	);
-}
-
-function getRenderer(question) {
-	// strategy design pattern
-	if (question.type === "shortAnswer") {
-		return <ShortAnswer />;
-	}
-	if (question.type === "longAnswer") {
-		return <LongAnswer />;
-	}
-	return <div>Error</div>;
 }
 
 function ShortAnswer({ question, children }) {

@@ -2,14 +2,6 @@ import React, { useEffect, useState } from "react";
 import api from "./api";
 import "./App.css";
 
-function newForm(name, description) {
-	const form = {
-		name: name,
-		description: description,
-	};
-	return form;
-}
-
 function App({ onEdit, onView, onAnswer }) {
 	const [formList, setFormList] = useState([]);
 	const [name, setName] = useState("");

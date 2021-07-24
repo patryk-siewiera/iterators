@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import api from "./api";
 import "./viewAnswers.css";
@@ -7,7 +7,6 @@ export default function ViewAnswers(props) {
 	const { id } = useParams();
 	const [answers, setAnswers] = useState([]);
 	const [questions, setQuestions] = useState([]);
-	const history = useHistory();
 
 	function getAnswersToDisplay(id) {
 		return api.getAnswers(id);
@@ -35,18 +34,6 @@ export default function ViewAnswers(props) {
 		));
 	}
 
-	function allAnswers() {
-		let answersArray = [];
-		for (let index = 0; index < answers.length; index++) {
-			answersArray.push(answersIterate(index));
-		}
-		return answersArray.map((el) => (
-			<div>
-				<div className="answersBody">{el}</div>
-			</div>
-		));
-	}
-
 	return (
 		<>
 			<div>
@@ -59,7 +46,6 @@ export default function ViewAnswers(props) {
 			</h1>
 			<br />
 			<div className="answersBody">
-				{console.log(questions)}
 				{questions.map((q, index) => (
 					<div>
 						<b>{q.text}</b>
