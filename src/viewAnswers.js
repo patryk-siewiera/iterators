@@ -1,31 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import api from "./api";
+import "./viewAnswers.css";
 
 export default function ViewAnswers(props) {
 	const { id } = useParams();
-	const [answer, setAnswer] = useState([]);
+	const [answers, setAnswers] = useState([]);
+	const [answerIds, setAnswerIds] = useState([]);
 	const history = useHistory();
 
 	function getAnswersToDisplay(id) {
 		return api.getAnswers(id);
 	}
 
-	const [answers, setAnswers] = useState([]);
-	const [answerIds, setAnswerIds] = useState([]);
-
 	useEffect(() => {
 		getAnswersToDisplay(id).then((q) => {
-			setAnswer(q);
-			// debugger;
 			setAnswers(Object.values(q));
 			setAnswerIds(Object.keys(q));
 		});
 	}, []);
 
-	function iterateOverObjects(data) {
-		console.log(data);
-		// data.map((e) => <div>{e}</div>);
+	function answersIterate(questionID) {
+		let answerArray = [];
+		answers.map((ans) => ans[1]);
+		for (let index = 0; index < answers.length; index++) {
+			answerArray.push(answers[index][questionID]);
+		}
+		return answerArray.map((el) => (
+			<div className="answerIterated">{el}</div>
+		));
+	}
+
+	function questionsIterate(questionID) {
+		return (
+			<div>
+				iterate Questionsiterate Questionsiterate Questionsiterate
+				Questions
+			</div>
+		);
 	}
 
 	return (
@@ -35,12 +47,8 @@ export default function ViewAnswers(props) {
 					Go back{" "}
 				</button>
 			</div>
-
-			<p>q ids: {JSON.stringify(answerIds)}</p>
-			<p>q textx: {JSON.stringify(answers.map((ans) => ans[1]))}</p>
-			<p>q options: {JSON.stringify(answers.map((ans) => ans[2]))}</p>
-
-			{JSON.stringify(answers)}
+			{questionsIterate()}
+			<div className="answersBody">{answersIterate(1)}</div>
 		</>
 	);
 }
