@@ -6,17 +6,21 @@ import "./viewAnswers.css";
 export default function ViewAnswers(props) {
 	const { id } = useParams();
 	const [answers, setAnswers] = useState([]);
-	const [answerIds, setAnswerIds] = useState([]);
+	const [questions, setQuestions] = useState([]);
 	const history = useHistory();
 
 	function getAnswersToDisplay(id) {
 		return api.getAnswers(id);
 	}
 
+	function getFromQuestions(id) {
+		api.getFormQuestions(id).then((q) => setQuestions(q));
+	}
+
 	useEffect(() => {
 		getAnswersToDisplay(id).then((q) => {
 			setAnswers(Object.values(q));
-			setAnswerIds(Object.keys(q));
+			getFromQuestions(id);
 		});
 	}, []);
 
@@ -31,13 +35,16 @@ export default function ViewAnswers(props) {
 		));
 	}
 
-	function questionsIterate(questionID) {
-		return (
+	function allAnswers() {
+		let answersArray = [];
+		for (let index = 0; index < answers.length; index++) {
+			answersArray.push(answersIterate(index));
+		}
+		return answersArray.map((el) => (
 			<div>
-				iterate Questionsiterate Questionsiterate Questionsiterate
-				Questions
+				<div className="answersBody">{el}</div>
 			</div>
-		);
+		));
 	}
 
 	return (
@@ -47,8 +54,22 @@ export default function ViewAnswers(props) {
 					Go back{" "}
 				</button>
 			</div>
-			{questionsIterate()}
-			<div className="answersBody">{answersIterate(1)}</div>
+			<h1>
+				Answers to question id: <u>{id}</u>
+			</h1>
+			<br />
+			<div className="answersBody">
+				{console.log(questions)}
+				{questions.map((q, index) => (
+					<div>
+						<b>{q.text}</b>
+						<br />
+						{answersIterate(index)}
+						<br />
+						<br />
+					</div>
+				))}
+			</div>
 		</>
 	);
 }

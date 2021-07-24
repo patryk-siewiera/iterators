@@ -34,6 +34,7 @@ export default function ViewForm(props) {
 			<div className="answersViewForm">
 				{" "}
 				{questions.map((q) => {
+					console.log(questions);
 					return (
 						<div className="singleQuestion">
 							{q.type === "shortAnswer" && (

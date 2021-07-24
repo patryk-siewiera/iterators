@@ -56,8 +56,8 @@ let formsQuestions = {
 		required: true,
 	},
 	6: {
-		type: "longAnswer",
-		text: "Descibe your favourite animal?",
+		type: "shortAnswer",
+		text: "What your favourite animal?",
 		required: false,
 	},
 	7: {
@@ -86,7 +86,7 @@ let formsQuestions = {
 	9: {
 		type: "line",
 		text: "How often you dance?",
-		range: [0, 30],
+		range: [0, 5],
 		required: true,
 	},
 };
@@ -104,7 +104,7 @@ const viewAnswersByFormId = (formId) => {
 
 let questionInForms = {
 	0: [0, 1, 2],
-	1: [2, 3, 4],
+	1: [3, 4],
 	2: [5, 6, 7, 8, 9],
 };
 
@@ -113,7 +113,7 @@ let answersToForms = {
 		0: {
 			0: "30",
 			1: "Boasting one of the biggest and baddest national parks in Serengeti and 16 national parks in total, Tanzania is the perfect place to watch the annual wildebeest migration. Watching baby elephants playing with their moms and pops in the muddy Rufiji/Tarangire River is one of the epic lifetime experiences to keep in your memories bright for decades.",
-			2: ["Poland", "Germany"],
+			2: ["Poland ", "Germany"],
 		},
 		1: {
 			0: "44",
@@ -126,7 +126,18 @@ let answersToForms = {
 			2: ["English"],
 		},
 	},
-	1: { 0: { "What languages do you speak": "" } },
+	1: {
+		0: { 0: ["Polish ", "German"], 1: "4" },
+		1: { 0: ["English ", "German"], 1: "6" },
+		2: { 0: ["German "], 1: "3" },
+	},
+	2: {
+		0: { 0: "Patrick", 1: "Dog", 2: "True", 3: "Rock", 4: "0" },
+		1: { 0: "Anna", 1: "Cat", 2: "False", 3: "Indie", 4: "1" },
+		2: { 0: "Steve", 1: "Birds", 2: "True", 3: "Classical", 4: "5" },
+		3: { 0: "Jordan", 1: "Fish", 2: "False", 3: "Electronic", 4: "3" },
+		4: { 0: "Nick", 1: "Tiger", 2: "True", 3: "Ambient", 4: "2" },
+	},
 };
 
 const api = {
