@@ -6,3 +6,11 @@
 	max-width: 60rem;
 	margin: auto;
 }
+
+.oneQuestion {
+	font-weight: bold;
+}
+
+.iterateAnswer {
+	margin-bottom: 40px;
+}

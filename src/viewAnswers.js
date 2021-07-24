@@ -48,11 +48,10 @@ export default function ViewAnswers(props) {
 			<div className="answersBody">
 				{questions.map((q, index) => (
 					<div>
-						<b>{q.text}</b>
-						<br />
-						{answersIterate(index)}
-						<br />
-						<br />
+						<div className="oneQuestion">{q.text}</div>
+						<div className="iterateAnswer">
+							{answersIterate(index)}
+						</div>
 					</div>
 				))}
 			</div>
